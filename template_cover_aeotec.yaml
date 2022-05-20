@@ -1,0 +1,21 @@
+# Example configuration.yaml entry
+
+# Template customized due to the integration of the ZW141 module in Home Assistant
+cover:
+  - platform: template
+    covers:
+      cover_template_name:
+        device_class: blind
+        friendly_name: "Cover Living"
+        open_cover:
+          - service: cover.open_cover
+            target:
+              entity_id: cover.nano_shutter_id
+        close_cover:
+          - service: cover.close_cover
+            target:
+              entity_id: cover.nano_shutter_id
+        stop_cover:
+          service: switch.toggle
+          target:
+            entity_id: switch.nano_shutter_id
